@@ -1,15 +1,9 @@
 // Online C++ compiler (editor)
 // Write and run C++ online using this editor.
-
+#include "Queue.h"
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct Queue
-{
-	unsigned int* queue;
-	unsigned int count;
-	unsigned int max;
-} Queue;
 void initQueue(Queue* q, unsigned int size) {
 	q->queue = (unsigned int*)calloc(size, sizeof(unsigned int)); // allocated array
 	q->max = size; // max size for checking 
