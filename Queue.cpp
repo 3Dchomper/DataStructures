@@ -1,8 +1,17 @@
-#include "Queue.h"
+// Online C++ compiler (editor)
+// Write and run C++ online using this editor.
+
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+typedef struct Queue
+{
+	unsigned int* queue;
+	unsigned int count;
+	unsigned int max;
+} Queue;
 void initQueue(Queue* q, unsigned int size) {
-	q->queue = calloc(size * sizeof(unsigned int)); // allocated array
+	q->queue = (unsigned int*)calloc(size, sizeof(unsigned int)); // allocated array
 	q->max = size; // max size for checking 
 	q->count = 0; // amount of values
 }
@@ -10,10 +19,10 @@ void cleanQueue(Queue* q) {
 	q->count = 0;
 }
 bool isEmpty(Queue* s) {
-	return count == 0; // list is empty
+	return s->count == 0; // list is empty
 }
 bool isFull(Queue* s) {
-	return s->count >= s->(max-1); // max -1 because size of array is always -1 when adding items
+	return s->count >= (s->max - 1); // max -1 because size of array is always -1 when adding items
 }
 void enqueue(Queue* q, unsigned int newValue) {
 	if (!isFull(q)) { // checks if there is space in the queue
